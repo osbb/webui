@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+    <span>Kooper</span>
+    <span class="fill"></span>
+    <a md-button [routerLink]=" ['./'] ">
+        Home
+    </a>
+    <a md-button [routerLink]=" ['./new'] ">
+        New
+    </a>
+</md-toolbar>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
