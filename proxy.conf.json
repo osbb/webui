@@ -1,0 +1,6 @@
+{
+  "/asyncapi/*": {
+    "target": "ws://localhost:3001",
+    "ws": true
+  }
+}
