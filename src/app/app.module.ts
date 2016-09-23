@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { MdModule } from './shared/md.module';
 import { DecisionsListComponent } from './decisions-list/decisions-list.component';
 import { DecisionCreateComponent } from './decision-create/decision-create.component';
-import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth.service';
 import { DecisionsService } from './decisions.service';
@@ -19,23 +18,39 @@ import { WebSocketService } from './web-socket.service';
 import { decisionsReducer } from './reducers/decisions.reducer';
 import { authReducer } from './reducers/auth.reducer';
 import { ProfileBoxComponent } from './profile-box/profile-box.component';
+import { PollsComponent } from './polls/polls.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FinancesComponent } from './finances/finances.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { NewsComponent } from './news/news.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DecisionsListComponent,
     DecisionCreateComponent,
-    HomeComponent,
     NotFoundComponent,
-    ProfileBoxComponent
+    ProfileBoxComponent,
+    PollsComponent,
+    DashboardComponent,
+    FinancesComponent,
+    PaymentsComponent,
+    NewsComponent,
+    ResourcesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: DashboardComponent },
+      { path: 'payments', component: PaymentsComponent },
+      { path: 'finances', component: FinancesComponent },
+      { path: 'resources', component: ResourcesComponent },
+      { path: 'polls', component: PollsComponent },
       { path: 'new', component: DecisionCreateComponent },
+      { path: 'news', component: NewsComponent },
       { path: '**', component: NotFoundComponent },
     ], { useHash: true }),
     MdModule.forRoot(),

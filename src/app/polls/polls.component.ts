@@ -3,11 +3,11 @@ import { Observable } from 'rxjs/Observable';
 import { DecisionsService } from '../decisions.service';
 
 @Component({
-  selector: 'app-home',
-  styleUrls: ['./home.component.scss'],
-  templateUrl: './home.component.html'
+  selector: 'app-polls',
+  templateUrl: './polls.component.html',
+  styleUrls: ['./polls.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class PollsComponent implements OnInit {
   decisions: Observable<{}>;
 
   constructor(private decisionsService: DecisionsService) {
