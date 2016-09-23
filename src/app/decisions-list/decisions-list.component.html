@@ -1,10 +1,12 @@
-<md-card *ngFor="let decision of decisions">
-  {{decision.title}}
-  {{decision.answer}}
-  <button md-button color="primary" (click)="vote(decision, true)">
-    Yes
-  </button>
-  <button md-button color="accent" (click)="vote(decision, false)">
-    No
-  </button>
-</md-card>
+<md-list>
+  <md-list-item *ngFor="let decision of decisions">
+    {{decision.title}}
+    {{decision.answer}}
+    <button md-button color="primary" (click)="vote(decision, true)">
+      Yes
+    </button>
+    <button md-button color="accent" (click)="vote(decision, false)">
+      No
+    </button>
+  </md-list-item>
+</md-list>

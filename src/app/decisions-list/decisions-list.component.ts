@@ -3,8 +3,8 @@ import { DecisionsService } from '../decisions.service';
 import { Decision } from '../decision.model';
 
 @Component({
-  selector: 'decisions-list',
-  styleUrls: ['./decisions-list.component.css'],
+  selector: 'app-decisions-list',
+  styleUrls: ['./decisions-list.component.scss'],
   templateUrl: './decisions-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -15,6 +15,6 @@ export class DecisionsListComponent {
   }
 
   vote(decision, answer) {
-    this.decisionsService.save(Object.assign({}, decision, {answer}));
+    this.decisionsService.save(Object.assign({}, decision, { answer }));
   }
 }

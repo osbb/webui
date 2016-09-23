@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { DecisionsService } from '../decisions.service';
 
 @Component({
-  selector: 'home',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-home',
+  styleUrls: ['./home.component.scss'],
   templateUrl: './home.component.html'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   decisions: Observable<{}>;
 
   constructor(private decisionsService: DecisionsService) {

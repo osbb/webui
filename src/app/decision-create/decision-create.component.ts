@@ -3,9 +3,9 @@ import { DecisionsService } from '../decisions.service';
 import { Decision } from '../decision.model';
 
 @Component({
-  selector: 'decision-create',
+  selector: 'app-decision-create',
   templateUrl: './decision-create.component.html',
-  styleUrls: ['./decision-create.component.css'],
+  styleUrls: ['./decision-create.component.scss'],
 })
 export class DecisionCreateComponent {
   decision: Decision;

@@ -1,0 +1,8 @@
+<p *ngIf="!(auth | async).token">
+  <button (click)="login()">
+    Login
+  </button>
+</p>
+<p *ngIf="(auth | async).token">
+  {{(auth | async).token}}
+</p>

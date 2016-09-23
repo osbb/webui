@@ -1,14 +1,17 @@
 <md-toolbar color="primary">
-    <span>Kooper</span>
-    <span class="fill"></span>
-    <a md-button [routerLink]=" ['./'] ">
-        Home
-    </a>
-    <a md-button [routerLink]=" ['./new'] ">
-        New
-    </a>
+  <span>Kooper</span>
+  <span class="fill"></span>
+  <a md-button [routerLink]=" ['./'] ">
+    Home
+  </a>
+  <a md-button [routerLink]=" ['./new'] ">
+    New
+  </a>
+  <app-profile-box></app-profile-box>
 </md-toolbar>
 
 <main>
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </main>
+
+<!--<ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>-->
