@@ -14,9 +14,11 @@ import { DecisionCreateComponent } from './decision-create/decision-create.compo
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth.service';
 import { DecisionsService } from './decisions.service';
+import { FlatsService } from './flats.service';
 import { WebSocketService } from './web-socket.service';
 import { decisionsReducer } from './reducers/decisions.reducer';
 import { authReducer } from './reducers/auth.reducer';
+import { flatsReducer } from './reducers/flats.reducer';
 import { ProfileBoxComponent } from './profile-box/profile-box.component';
 import { PollsComponent } from './polls/polls.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -24,6 +26,7 @@ import { FinancesComponent } from './finances/finances.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { NewsComponent } from './news/news.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { FlatsListComponent } from './flats-list/flats-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { ResourcesComponent } from './resources/resources.component';
     FinancesComponent,
     PaymentsComponent,
     NewsComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    FlatsListComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,7 @@ import { ResourcesComponent } from './resources/resources.component';
     StoreModule.provideStore({
       decisions: decisionsReducer,
       auth: authReducer,
+      flats: flatsReducer,
     }, {
       decisions: [],
       auth: {},
@@ -72,6 +77,7 @@ import { ResourcesComponent } from './resources/resources.component';
   providers: [
     AuthService,
     DecisionsService,
+    FlatsService,
     WebSocketService,
   ],
   bootstrap: [AppComponent]
