@@ -1,5 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { DecisionsService } from '../decisions.service';
+import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { Decision } from '../decision.model';
 
 @Component({
@@ -10,11 +9,5 @@ import { Decision } from '../decision.model';
 })
 export class DecisionsListComponent {
   @Input() decisions: Decision[];
-
-  constructor(private decisionsService: DecisionsService) {
-  }
-
-  vote(decision, answer) {
-    this.decisionsService.save(Object.assign({}, decision, { answer }));
-  }
+  @Output() selected = new EventEmitter();
 }

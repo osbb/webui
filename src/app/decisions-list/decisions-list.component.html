@@ -1,12 +1,8 @@
 <md-list>
-  <md-list-item *ngFor="let decision of decisions">
+  <md-list-item
+      *ngFor="let decision of decisions"
+      (click)="selected.emit(decision); $event.stopPropagation();"
+  >
     {{decision.title}}
-    {{decision.answer}}
-    <button md-button color="primary" (click)="vote(decision, true)">
-      Yes
-    </button>
-    <button md-button color="accent" (click)="vote(decision, false)">
-      No
-    </button>
   </md-list-item>
 </md-list>

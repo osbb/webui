@@ -1,5 +1,15 @@
-<app-decisions-list [decisions]="decisions | async"></app-decisions-list>
+<md-card class="block">
+  <md-card-title>Decisions</md-card-title>
+  <md-card-content>
+    <app-decisions-list
+        [decisions]="decisions | async"
+        (selected)="onDecisionSelected($event)"
+    ></app-decisions-list>
+  </md-card-content>
+</md-card>
 
-<a md-button [routerLink]=" ['/new'] ">
-  New
-</a>
+<app-decision-form
+    *ngIf="selectedDecision | async"
+    [decision]="selectedDecision | async"
+    (closed)="onDecisionDeselected()"
+></app-decision-form>

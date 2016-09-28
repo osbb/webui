@@ -10,7 +10,7 @@ import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { AppComponent } from './app.component';
 import { MdModule } from './shared/md.module';
 import { DecisionsListComponent } from './decisions-list/decisions-list.component';
-import { DecisionCreateComponent } from './decision-create/decision-create.component';
+import { DecisionFormComponent } from './decision-form/decision-form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth.service';
 import { DecisionsService } from './decisions.service';
@@ -23,6 +23,7 @@ import { housesReducer } from './reducers/houses.reducer';
 import { flatsReducer } from './reducers/flats.reducer';
 import { selectedHouseReducer } from './reducers/selected-house.reducer';
 import { selectedFlatReducer } from './reducers/selected-flat.reducer';
+import { selectedDecisionReducer } from './reducers/selected-decision.reducer';
 import { ProfileBoxComponent } from './profile-box/profile-box.component';
 import { PollsComponent } from './polls/polls.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -39,7 +40,7 @@ import { FlatFormComponent } from './flat-form/flat-form.component';
   declarations: [
     AppComponent,
     DecisionsListComponent,
-    DecisionCreateComponent,
+    DecisionFormComponent,
     NotFoundComponent,
     ProfileBoxComponent,
     PollsComponent,
@@ -63,13 +64,13 @@ import { FlatFormComponent } from './flat-form/flat-form.component';
       { path: 'finances', component: FinancesComponent },
       { path: 'resources', component: ResourcesComponent },
       { path: 'polls', component: PollsComponent },
-      { path: 'new', component: DecisionCreateComponent },
       { path: 'news', component: NewsComponent },
       { path: '**', component: NotFoundComponent },
     ], { useHash: true }),
     MdModule.forRoot(),
     StoreModule.provideStore({
       decisions: decisionsReducer,
+      selectedDecision: selectedDecisionReducer,
       auth: authReducer,
       houses: housesReducer,
       selectedHouse: selectedHouseReducer,
@@ -77,6 +78,7 @@ import { FlatFormComponent } from './flat-form/flat-form.component';
       selectedFlat: selectedFlatReducer,
     }, {
       decisions: [],
+      selectedDecision: null,
       auth: {},
       houses: [],
       selectedHouse: null,
