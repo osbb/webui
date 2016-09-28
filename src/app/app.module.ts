@@ -30,6 +30,7 @@ import { NewsComponent } from './news/news.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { HousesListComponent } from './houses-list/houses-list.component';
 import { FlatsListComponent } from './flats-list/flats-list.component';
+import { HouseCreateComponent } from './house-create/house-create.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FlatsListComponent } from './flats-list/flats-list.component';
     NewsComponent,
     ResourcesComponent,
     FlatsListComponent,
-    HousesListComponent
+    HousesListComponent,
+    HouseCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +58,7 @@ import { FlatsListComponent } from './flats-list/flats-list.component';
       { path: 'payments', component: PaymentsComponent },
       { path: 'finances', component: FinancesComponent },
       { path: 'resources', component: ResourcesComponent },
+      { path: 'resources/new-house', component: HouseCreateComponent },
       { path: 'polls', component: PollsComponent },
       { path: 'new', component: DecisionCreateComponent },
       { path: 'news', component: NewsComponent },
