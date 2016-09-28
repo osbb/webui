@@ -3,11 +3,11 @@ import { House } from '../house.model';
 import { HousesService } from '../houses.service';
 
 @Component({
-  selector: 'app-house-update',
-  templateUrl: './house-update.component.html',
-  styleUrls: ['./house-update.component.scss']
+  selector: 'app-house-form',
+  templateUrl: 'house-form.component.html',
+  styleUrls: ['house-form.component.scss']
 })
-export class HouseUpdateComponent {
+export class HouseFormComponent {
   @Input() house: House;
   @Output() closed = new EventEmitter();
 
@@ -15,6 +15,6 @@ export class HouseUpdateComponent {
   }
 
   submit() {
-    this.housesService.update(this.house);
+    this.housesService.save(this.house);
   }
 }

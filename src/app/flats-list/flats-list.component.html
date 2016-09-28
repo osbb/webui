@@ -2,4 +2,7 @@
   <md-list-item *ngFor="let flat of flats" (click)="selected.emit(flat); $event.stopPropagation();">
     {{flat.number}}
   </md-list-item>
+  <md-list-item (click)="selected.emit({}); $event.stopPropagation();">
+    Add
+  </md-list-item>
 </md-list>

@@ -3,11 +3,11 @@ import { Flat } from '../flat.model';
 import { FlatsService } from '../flats.service';
 
 @Component({
-  selector: 'app-flat-update',
-  templateUrl: './flat-update.component.html',
-  styleUrls: ['./flat-update.component.scss']
+  selector: 'app-flat-form',
+  templateUrl: 'flat-form.component.html',
+  styleUrls: ['flat-form.component.scss']
 })
-export class FlatUpdateComponent {
+export class FlatFormComponent {
   @Input() flat: Flat;
   @Output() closed = new EventEmitter();
 
@@ -15,7 +15,7 @@ export class FlatUpdateComponent {
   }
 
   submit() {
-    this.flatsService.update(this.flat);
+    this.flatsService.save(this.flat);
   }
 
 }

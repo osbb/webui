@@ -32,10 +32,8 @@ import { NewsComponent } from './news/news.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { HousesListComponent } from './houses-list/houses-list.component';
 import { FlatsListComponent } from './flats-list/flats-list.component';
-import { HouseCreateComponent } from './house-create/house-create.component';
-import { HouseUpdateComponent } from './house-update/house-update.component';
-import { FlatCreateComponent } from './flat-create/flat-create.component';
-import { FlatUpdateComponent } from './flat-update/flat-update.component';
+import { HouseFormComponent } from './house-form/house-form.component';
+import { FlatFormComponent } from './flat-form/flat-form.component';
 
 @NgModule({
   declarations: [
@@ -52,10 +50,8 @@ import { FlatUpdateComponent } from './flat-update/flat-update.component';
     ResourcesComponent,
     FlatsListComponent,
     HousesListComponent,
-    HouseCreateComponent,
-    HouseUpdateComponent,
-    FlatUpdateComponent,
-    FlatCreateComponent
+    HouseFormComponent,
+    FlatFormComponent
   ],
   imports: [
     BrowserModule,
@@ -66,8 +62,6 @@ import { FlatUpdateComponent } from './flat-update/flat-update.component';
       { path: 'payments', component: PaymentsComponent },
       { path: 'finances', component: FinancesComponent },
       { path: 'resources', component: ResourcesComponent },
-      { path: 'resources/new-house', component: HouseCreateComponent },
-      { path: 'resources/new-flat', component: FlatCreateComponent },
       { path: 'polls', component: PollsComponent },
       { path: 'new', component: DecisionCreateComponent },
       { path: 'news', component: NewsComponent },

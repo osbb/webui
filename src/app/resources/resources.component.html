@@ -1,29 +1,31 @@
-<app-houses-list
-    [houses]="houses | async"
-    (selected)="onHouseSelected($event)"
-></app-houses-list>
+<md-card class="block">
+  <md-card-title>Houses</md-card-title>
+  <md-card-content>
+    <app-houses-list
+        [houses]="houses | async"
+        (selected)="onHouseSelected($event)"
+    ></app-houses-list>
+  </md-card-content>
+</md-card>
 
-<app-house-update
+<app-house-form
     *ngIf="selectedHouse | async"
     [house]="selectedHouse | async"
     (closed)="onHouseDeselected()"
-></app-house-update>
+></app-house-form>
 
-<a md-button [routerLink]=" ['/resources/new-house'] ">
-  New
-</a>
+<md-card class="block">
+  <md-card-title>Flats</md-card-title>
+  <md-card-content>
+    <app-flats-list
+        [flats]="flats | async"
+        (selected)="onFlatSelected($event)"
+    ></app-flats-list>
+  </md-card-content>
+</md-card>
 
-<app-flats-list
-    [flats]="flats | async"
-    (selected)="onFlatSelected($event)"
-></app-flats-list>
-
-<app-flat-update
+<app-flat-form
     *ngIf="selectedFlat | async"
     [flat]="selectedFlat | async"
     (closed)="onFlatDeselected()"
-></app-flat-update>
-
-<a md-button [routerLink]=" ['/resources/new-flat'] ">
-  New
-</a>
+></app-flat-form>
