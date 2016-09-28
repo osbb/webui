@@ -1,3 +1,15 @@
-<p>
-  finances works!
-</p>
+<md-card class="block">
+  <md-card-title>Services</md-card-title>
+  <md-card-content>
+    <app-services-list
+        [services]="services | async"
+        (selected)="onServiceSelected($event)"
+    ></app-services-list>
+  </md-card-content>
+</md-card>
+
+<app-service-form
+    *ngIf="selectedService | async"
+    [service]="selectedService | async"
+    (closed)="onServiceDeselected()"
+></app-service-form>

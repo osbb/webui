@@ -16,14 +16,17 @@ import { AuthService } from './auth.service';
 import { DecisionsService } from './decisions.service';
 import { HousesService } from './houses.service';
 import { FlatsService } from './flats.service';
+import { ServicesService } from './services.service';
 import { WebSocketService } from './web-socket.service';
 import { decisionsReducer } from './reducers/decisions.reducer';
 import { authReducer } from './reducers/auth.reducer';
 import { housesReducer } from './reducers/houses.reducer';
 import { flatsReducer } from './reducers/flats.reducer';
+import { servicesReducer } from './reducers/services.reducer';
 import { selectedHouseReducer } from './reducers/selected-house.reducer';
 import { selectedFlatReducer } from './reducers/selected-flat.reducer';
 import { selectedDecisionReducer } from './reducers/selected-decision.reducer';
+import { selectedServiceReducer } from './reducers/selected-service.reducer';
 import { ProfileBoxComponent } from './profile-box/profile-box.component';
 import { PollsComponent } from './polls/polls.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -35,6 +38,8 @@ import { HousesListComponent } from './houses-list/houses-list.component';
 import { FlatsListComponent } from './flats-list/flats-list.component';
 import { HouseFormComponent } from './house-form/house-form.component';
 import { FlatFormComponent } from './flat-form/flat-form.component';
+import { ServicesListComponent } from './services-list/services-list.component';
+import { ServiceFormComponent } from './service-form/service-form.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +57,9 @@ import { FlatFormComponent } from './flat-form/flat-form.component';
     FlatsListComponent,
     HousesListComponent,
     HouseFormComponent,
-    FlatFormComponent
+    FlatFormComponent,
+    ServicesListComponent,
+    ServiceFormComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +83,8 @@ import { FlatFormComponent } from './flat-form/flat-form.component';
       selectedHouse: selectedHouseReducer,
       flats: flatsReducer,
       selectedFlat: selectedFlatReducer,
+      services: servicesReducer,
+      selectedService: selectedServiceReducer,
     }, {
       decisions: [],
       selectedDecision: null,
@@ -84,6 +93,8 @@ import { FlatFormComponent } from './flat-form/flat-form.component';
       selectedHouse: null,
       flats: [],
       selectedFlat: null,
+      services: [],
+      selectedService: null,
     }),
     StoreDevtoolsModule.instrumentStore({
       monitor: useLogMonitor({
@@ -98,6 +109,7 @@ import { FlatFormComponent } from './flat-form/flat-form.component';
     DecisionsService,
     HousesService,
     FlatsService,
+    ServicesService,
     WebSocketService,
   ],
   bootstrap: [AppComponent]
