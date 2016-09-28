@@ -13,4 +13,17 @@
   New
 </a>
 
-<app-flats-list [flats]="flats | async"></app-flats-list>
+<app-flats-list
+    [flats]="flats | async"
+    (selected)="onFlatSelected($event)"
+></app-flats-list>
+
+<app-flat-update
+    *ngIf="selectedFlat | async"
+    [flat]="selectedFlat | async"
+    (closed)="onFlatDeselected()"
+></app-flat-update>
+
+<a md-button [routerLink]=" ['/resources/new-flat'] ">
+  New
+</a>

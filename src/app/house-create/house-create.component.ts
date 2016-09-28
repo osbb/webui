@@ -18,7 +18,6 @@ export class HouseCreateComponent {
   }
 
   submit() {
-    console.log(this.house);
     this.housesService.create(this.house);
   }
 

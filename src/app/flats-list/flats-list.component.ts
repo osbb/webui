@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { Flat } from '../flat.model';
 
 @Component({
@@ -9,7 +9,5 @@ import { Flat } from '../flat.model';
 })
 export class FlatsListComponent {
   @Input() flats: Flat[];
-
-  constructor() {
-  }
+  @Output() selected = new EventEmitter();
 }

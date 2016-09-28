@@ -22,6 +22,7 @@ import { authReducer } from './reducers/auth.reducer';
 import { housesReducer } from './reducers/houses.reducer';
 import { flatsReducer } from './reducers/flats.reducer';
 import { selectedHouseReducer } from './reducers/selected-house.reducer';
+import { selectedFlatReducer } from './reducers/selected-flat.reducer';
 import { ProfileBoxComponent } from './profile-box/profile-box.component';
 import { PollsComponent } from './polls/polls.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -33,6 +34,8 @@ import { HousesListComponent } from './houses-list/houses-list.component';
 import { FlatsListComponent } from './flats-list/flats-list.component';
 import { HouseCreateComponent } from './house-create/house-create.component';
 import { HouseUpdateComponent } from './house-update/house-update.component';
+import { FlatCreateComponent } from './flat-create/flat-create.component';
+import { FlatUpdateComponent } from './flat-update/flat-update.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,9 @@ import { HouseUpdateComponent } from './house-update/house-update.component';
     FlatsListComponent,
     HousesListComponent,
     HouseCreateComponent,
-    HouseUpdateComponent
+    HouseUpdateComponent,
+    FlatUpdateComponent,
+    FlatCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +67,7 @@ import { HouseUpdateComponent } from './house-update/house-update.component';
       { path: 'finances', component: FinancesComponent },
       { path: 'resources', component: ResourcesComponent },
       { path: 'resources/new-house', component: HouseCreateComponent },
+      { path: 'resources/new-flat', component: FlatCreateComponent },
       { path: 'polls', component: PollsComponent },
       { path: 'new', component: DecisionCreateComponent },
       { path: 'news', component: NewsComponent },
@@ -74,12 +80,14 @@ import { HouseUpdateComponent } from './house-update/house-update.component';
       houses: housesReducer,
       selectedHouse: selectedHouseReducer,
       flats: flatsReducer,
+      selectedFlat: selectedFlatReducer,
     }, {
       decisions: [],
       auth: {},
       houses: [],
       selectedHouse: null,
       flats: [],
+      selectedFlat: null,
     }),
     StoreDevtoolsModule.instrumentStore({
       monitor: useLogMonitor({

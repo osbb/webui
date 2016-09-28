@@ -1,5 +1,5 @@
 <md-list>
-  <md-list-item *ngFor="let flat of flats">
+  <md-list-item *ngFor="let flat of flats" (click)="selected.emit(flat); $event.stopPropagation();">
     {{flat.number}}
   </md-list-item>
 </md-list>

@@ -6,7 +6,8 @@ import { House } from './house.model';
 export interface AppStore {
   decisions: Array<Decision>;
   auth: Auth;
-  flats: Array<Flat>;
   houses: Array<House>;
   selectedHouse: House;
+  flats: Array<Flat>;
+  selectedFlat: Flat;
 }
