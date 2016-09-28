@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { HousesService } from '../houses.service';
 import { FlatsService } from '../flats.service';
 
 @Component({
@@ -9,12 +10,15 @@ import { FlatsService } from '../flats.service';
 })
 export class ResourcesComponent implements OnInit {
   flats: Observable<{}>;
+  houses: Observable<{}>;
 
-  constructor(private flatsService: FlatsService) {
+  constructor(private housesService: HousesService, private flatsService: FlatsService) {
+    this.houses = housesService.houses;
     this.flats = flatsService.flats;
   }
 
   ngOnInit() {
+    this.housesService.load();
     this.flatsService.load();
   }
 }

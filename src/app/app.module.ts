@@ -14,10 +14,12 @@ import { DecisionCreateComponent } from './decision-create/decision-create.compo
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth.service';
 import { DecisionsService } from './decisions.service';
+import { HousesService } from './houses.service';
 import { FlatsService } from './flats.service';
 import { WebSocketService } from './web-socket.service';
 import { decisionsReducer } from './reducers/decisions.reducer';
 import { authReducer } from './reducers/auth.reducer';
+import { housesReducer } from './reducers/houses.reducer';
 import { flatsReducer } from './reducers/flats.reducer';
 import { ProfileBoxComponent } from './profile-box/profile-box.component';
 import { PollsComponent } from './polls/polls.component';
@@ -26,6 +28,7 @@ import { FinancesComponent } from './finances/finances.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { NewsComponent } from './news/news.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { HousesListComponent } from './houses-list/houses-list.component';
 import { FlatsListComponent } from './flats-list/flats-list.component';
 
 @NgModule({
@@ -41,7 +44,8 @@ import { FlatsListComponent } from './flats-list/flats-list.component';
     PaymentsComponent,
     NewsComponent,
     ResourcesComponent,
-    FlatsListComponent
+    FlatsListComponent,
+    HousesListComponent
   ],
   imports: [
     BrowserModule,
@@ -61,10 +65,13 @@ import { FlatsListComponent } from './flats-list/flats-list.component';
     StoreModule.provideStore({
       decisions: decisionsReducer,
       auth: authReducer,
+      houses: housesReducer,
       flats: flatsReducer,
     }, {
       decisions: [],
       auth: {},
+      houses: [],
+      flats: [],
     }),
     StoreDevtoolsModule.instrumentStore({
       monitor: useLogMonitor({
@@ -77,6 +84,7 @@ import { FlatsListComponent } from './flats-list/flats-list.component';
   providers: [
     AuthService,
     DecisionsService,
+    HousesService,
     FlatsService,
     WebSocketService,
   ],
