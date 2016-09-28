@@ -1,4 +1,13 @@
-<app-houses-list [houses]="houses | async"></app-houses-list>
+<app-houses-list
+    [houses]="houses | async"
+    (selected)="onHouseSelected($event)"
+></app-houses-list>
+
+<app-house-update
+    *ngIf="selectedHouse | async"
+    [house]="selectedHouse | async"
+    (closed)="onHouseDeselected()"
+></app-house-update>
 
 <a md-button [routerLink]=" ['/resources/new-house'] ">
   New

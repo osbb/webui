@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { House } from '../house.model';
 
 @Component({
@@ -9,7 +9,5 @@ import { House } from '../house.model';
 })
 export class HousesListComponent {
   @Input() houses: House[];
-
-  constructor() {
-  }
+  @Output() selected = new EventEmitter();
 }

@@ -1,5 +1,5 @@
 <md-list>
-  <md-list-item *ngFor="let house of houses">
+  <md-list-item *ngFor="let house of houses" (click)="selected.emit(house); $event.stopPropagation();">
     {{house.address}}
   </md-list-item>
 </md-list>

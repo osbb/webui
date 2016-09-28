@@ -5,4 +5,8 @@ md-list {
   background: white;
   border-radius: 2px;
   margin-bottom: 16px;
+
+  md-list-item {
+    cursor: pointer;
+  }
 }

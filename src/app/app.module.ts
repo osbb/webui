@@ -21,6 +21,7 @@ import { decisionsReducer } from './reducers/decisions.reducer';
 import { authReducer } from './reducers/auth.reducer';
 import { housesReducer } from './reducers/houses.reducer';
 import { flatsReducer } from './reducers/flats.reducer';
+import { selectedHouseReducer } from './reducers/selected-house.reducer';
 import { ProfileBoxComponent } from './profile-box/profile-box.component';
 import { PollsComponent } from './polls/polls.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -31,6 +32,7 @@ import { ResourcesComponent } from './resources/resources.component';
 import { HousesListComponent } from './houses-list/houses-list.component';
 import { FlatsListComponent } from './flats-list/flats-list.component';
 import { HouseCreateComponent } from './house-create/house-create.component';
+import { HouseUpdateComponent } from './house-update/house-update.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { HouseCreateComponent } from './house-create/house-create.component';
     ResourcesComponent,
     FlatsListComponent,
     HousesListComponent,
-    HouseCreateComponent
+    HouseCreateComponent,
+    HouseUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -69,11 +72,13 @@ import { HouseCreateComponent } from './house-create/house-create.component';
       decisions: decisionsReducer,
       auth: authReducer,
       houses: housesReducer,
+      selectedHouse: selectedHouseReducer,
       flats: flatsReducer,
     }, {
       decisions: [],
       auth: {},
       houses: [],
+      selectedHouse: null,
       flats: [],
     }),
     StoreDevtoolsModule.instrumentStore({

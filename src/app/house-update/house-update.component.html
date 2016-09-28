@@ -1,0 +1,9 @@
+<md-card>
+  <md-card-content>
+    <md-input placeholder="Address" style="width: 100%" [(ngModel)]="house.address"></md-input>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="submit()">Save</button>
+    <button md-button (click)="closed.emit(); $event.stopPropagation();">Cancel</button>
+  </md-card-actions>
+</md-card>
