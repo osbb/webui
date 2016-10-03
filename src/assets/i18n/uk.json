@@ -1,0 +1,14 @@
+{
+  "flatForm": {
+    "number": "Номер",
+    "owner": "ПІБ Власника"
+  },
+  "nav": {
+    "dashboard": "Дешборд",
+    "payments": "Платежі",
+    "finances": "Фінанси",
+    "resources": "Ресурси",
+    "polls": "Опитування",
+    "announcements": "Оголошення"
+  }
+}
