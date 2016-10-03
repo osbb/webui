@@ -41,6 +41,7 @@ import { HouseFormComponent } from './house-form/house-form.component';
 import { FlatFormComponent } from './flat-form/flat-form.component';
 import { ServicesListComponent } from './services-list/services-list.component';
 import { ServiceFormComponent } from './service-form/service-form.component';
+import { BillingComponent } from './billing/billing.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ServiceFormComponent } from './service-form/service-form.component';
     HouseFormComponent,
     FlatFormComponent,
     ServicesListComponent,
-    ServiceFormComponent
+    ServiceFormComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,
