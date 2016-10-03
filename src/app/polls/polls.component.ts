@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { DecisionsService } from '../decisions.service';
-import { Decision } from '../decision.model';
+import { PollsService } from '../polls.service';
+import { Poll } from '../poll.model';
 import { AppStore } from '../app.store';
 import { Store } from '@ngrx/store';
 
@@ -11,24 +11,24 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./polls.component.scss']
 })
 export class PollsComponent implements OnInit {
-  decisions: Observable<{}>;
-  selectedDecision: Observable<{}>;
+  polls: Observable<{}>;
+  selectedPoll: Observable<{}>;
 
-  constructor(private decisionsService: DecisionsService,
+  constructor(private pollsService: PollsService,
               private store: Store<AppStore>) {
-    this.decisions = decisionsService.decisions;
-    this.selectedDecision = store.select('selectedDecision');
+    this.polls = pollsService.polls;
+    this.selectedPoll = store.select('selectedPoll');
   }
 
   ngOnInit() {
-    this.decisionsService.load();
+    this.pollsService.load();
   }
 
-  onDecisionSelected(decision: Decision) {
-    this.store.dispatch({ type: 'SELECT_DECISION', payload: decision });
+  onPollSelected(poll: Poll) {
+    this.store.dispatch({ type: 'SELECT_POLL', payload: poll });
   }
 
-  onDecisionDeselected() {
-    this.store.dispatch({ type: 'DESELECT_DECISION' });
+  onPollDeselected() {
+    this.store.dispatch({ type: 'DESELECT_POLL' });
   }
 }

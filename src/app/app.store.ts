@@ -1,10 +1,10 @@
-import { Decision } from './decision.model';
+import { Poll } from './poll.model';
 import { Auth } from './auth.model';
 import { Flat } from './flat.model';
 import { House } from './house.model';
 
 export interface AppStore {
-  decisions: Array<Decision>;
+  polls: Array<Poll>;
   auth: Auth;
   houses: Array<House>;
   selectedHouse: House;

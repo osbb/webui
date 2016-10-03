@@ -1,15 +1,15 @@
 <md-card class="block">
-  <md-card-title>Decisions</md-card-title>
+  <md-card-title>Polls</md-card-title>
   <md-card-content>
-    <app-decisions-list
-        [decisions]="decisions | async"
-        (selected)="onDecisionSelected($event)"
-    ></app-decisions-list>
+    <app-polls-list
+        [polls]="polls | async"
+        (selected)="onPollSelected($event)"
+    ></app-polls-list>
   </md-card-content>
 </md-card>
 
-<app-decision-form
-    *ngIf="selectedDecision | async"
-    [decision]="selectedDecision | async"
-    (closed)="onDecisionDeselected()"
-></app-decision-form>
+<app-poll-form
+    *ngIf="selectedPoll | async"
+    [poll]="selectedPoll | async"
+    (closed)="onPollDeselected()"
+></app-poll-form>

@@ -1,4 +1,4 @@
-export interface Decision {
+export interface Poll {
   _id: number;
   title: string;
 }

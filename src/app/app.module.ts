@@ -10,23 +10,23 @@ import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-tra
 
 import { AppComponent } from './app.component';
 import { MdModule } from './shared/md.module';
-import { DecisionsListComponent } from './decisions-list/decisions-list.component';
-import { DecisionFormComponent } from './decision-form/decision-form.component';
+import { PollsListComponent } from './polls-list/polls-list.component';
+import { PollFormComponent } from './poll-form/poll-form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth.service';
-import { DecisionsService } from './decisions.service';
+import { PollsService } from './polls.service';
 import { HousesService } from './houses.service';
 import { FlatsService } from './flats.service';
 import { ServicesService } from './services.service';
 import { WebSocketService } from './web-socket.service';
-import { decisionsReducer } from './reducers/decisions.reducer';
+import { pollsReducer } from './reducers/polls.reducer';
 import { authReducer } from './reducers/auth.reducer';
 import { housesReducer } from './reducers/houses.reducer';
 import { flatsReducer } from './reducers/flats.reducer';
 import { servicesReducer } from './reducers/services.reducer';
 import { selectedHouseReducer } from './reducers/selected-house.reducer';
 import { selectedFlatReducer } from './reducers/selected-flat.reducer';
-import { selectedDecisionReducer } from './reducers/selected-decision.reducer';
+import { selectedPollReducer } from './reducers/selected-poll.reducer';
 import { selectedServiceReducer } from './reducers/selected-service.reducer';
 import { ProfileBoxComponent } from './profile-box/profile-box.component';
 import { PollsComponent } from './polls/polls.component';
@@ -46,8 +46,8 @@ import { BillingComponent } from './billing/billing.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DecisionsListComponent,
-    DecisionFormComponent,
+    PollsListComponent,
+    PollFormComponent,
     NotFoundComponent,
     ProfileBoxComponent,
     PollsComponent,
@@ -79,8 +79,8 @@ import { BillingComponent } from './billing/billing.component';
     ], { useHash: true }),
     MdModule.forRoot(),
     StoreModule.provideStore({
-      decisions: decisionsReducer,
-      selectedDecision: selectedDecisionReducer,
+      polls: pollsReducer,
+      selectedPoll: selectedPollReducer,
       auth: authReducer,
       houses: housesReducer,
       selectedHouse: selectedHouseReducer,
@@ -89,8 +89,8 @@ import { BillingComponent } from './billing/billing.component';
       services: servicesReducer,
       selectedService: selectedServiceReducer,
     }, {
-      decisions: [],
-      selectedDecision: null,
+      polls: [],
+      selectedPoll: null,
       auth: {},
       houses: [],
       selectedHouse: null,
@@ -114,7 +114,7 @@ import { BillingComponent } from './billing/billing.component';
   ],
   providers: [
     AuthService,
-    DecisionsService,
+    PollsService,
     HousesService,
     FlatsService,
     ServicesService,
