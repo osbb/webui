@@ -1,17 +1,27 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { Flat } from '../flat.model';
 import { FlatsService } from '../flats.service';
+import { HousesService } from '../houses.service';
 
 @Component({
   selector: 'app-flat-form',
   templateUrl: 'flat-form.component.html',
   styleUrls: ['flat-form.component.scss']
 })
-export class FlatFormComponent {
+export class FlatFormComponent implements OnInit {
   @Input() flat: Flat;
   @Output() closed = new EventEmitter();
 
-  constructor(private flatsService: FlatsService) {
+  houses: Observable<{}>;
+
+  constructor(private flatsService: FlatsService,
+              private housesService: HousesService) {
+    this.houses = housesService.houses;
+  }
+
+  ngOnInit() {
+    this.housesService.load();
   }
 
   submit() {

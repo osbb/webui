@@ -1,9 +1,13 @@
 <md-card>
-  <md-card-content>
-    <md-input placeholder="Number" style="width: 100%" [(ngModel)]="flat.number"></md-input>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button (click)="submit()">Save</button>
-    <button md-button (click)="closed.emit(); $event.stopPropagation();">Cancel</button>
-  </md-card-actions>
+    <md-card-content>
+        <md-radio-group [(ngModel)]="flat.houseId">
+            <md-radio-button *ngFor="let h of houses | async" [value]="h._id">{{h.address}}</md-radio-button>
+        </md-radio-group>
+        <md-input placeholder="Number" style="width: 100%" [(ngModel)]="flat.number"></md-input>
+        <md-input placeholder="Owner's Name" style="width: 100%" [(ngModel)]="flat.owner"></md-input>
+    </md-card-content>
+    <md-card-actions>
+        <button md-button (click)="submit()">Save</button>
+        <button md-button (click)="closed.emit(); $event.stopPropagation();">Cancel</button>
+    </md-card-actions>
 </md-card>
