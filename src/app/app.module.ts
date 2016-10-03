@@ -33,7 +33,7 @@ import { PollsComponent } from './polls/polls.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FinancesComponent } from './finances/finances.component';
 import { PaymentsComponent } from './payments/payments.component';
-import { NewsComponent } from './news/news.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { HousesListComponent } from './houses-list/houses-list.component';
 import { FlatsListComponent } from './flats-list/flats-list.component';
@@ -54,7 +54,7 @@ import { BillingComponent } from './billing/billing.component';
     DashboardComponent,
     FinancesComponent,
     PaymentsComponent,
-    NewsComponent,
+    AnnouncementsComponent,
     ResourcesComponent,
     FlatsListComponent,
     HousesListComponent,
@@ -74,7 +74,7 @@ import { BillingComponent } from './billing/billing.component';
       { path: 'finances', component: FinancesComponent },
       { path: 'resources', component: ResourcesComponent },
       { path: 'polls', component: PollsComponent },
-      { path: 'news', component: NewsComponent },
+      { path: 'announcements', component: AnnouncementsComponent },
       { path: '**', component: NotFoundComponent },
     ], { useHash: true }),
     MdModule.forRoot(),
