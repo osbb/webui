@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { House } from '../house.model';
-import { HousesService } from '../houses.service';
+import { House } from '../models/house.model';
+import { HousesService } from '../services/houses.service';
 
 @Component({
   selector: 'app-house-form',
@@ -10,11 +10,27 @@ import { HousesService } from '../houses.service';
 export class HouseFormComponent {
   @Input() house: House;
   @Output() closed = new EventEmitter();
+  @Output() created = new EventEmitter();
+  @Output() removed = new EventEmitter();
 
   constructor(private housesService: HousesService) {
   }
 
   submit() {
-    this.housesService.save(this.house);
+    if (this.house._id) {
+      this.housesService.update(this.house);
+    } else {
+      this.housesService.create(this.house)
+        .then(house => {
+          this.created.emit(house);
+        });
+    }
+  }
+
+  remove() {
+    this.housesService.remove(this.house)
+      .then(() => {
+        this.removed.emit();
+      });
   }
 }

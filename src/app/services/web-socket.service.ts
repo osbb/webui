@@ -6,6 +6,6 @@ export class WebSocketService {
   public socket: any;
 
   constructor() {
-    this.socket = io({path: '/asyncapi'});
+    this.socket = io({ path: '/asyncapi' });
   }
 }

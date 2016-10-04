@@ -17,6 +17,7 @@
       "hammerjs",
       "jasmine",
       "node",
+      "node-uuid",
       "protractor",
       "socket.io-client",
       "source-map"

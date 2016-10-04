@@ -1,5 +1,5 @@
 import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
-import { Poll } from '../poll.model';
+import { Poll } from '../models/poll.model';
 
 @Component({
   selector: 'app-polls-list',

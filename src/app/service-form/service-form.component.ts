@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ServicesService } from '../services.service';
-import { Service } from '../service.model';
+import { ServicesService } from '../services/services.service';
+import { Service } from '../models/service.model';
 
 @Component({
   selector: 'app-service-form',
@@ -10,12 +10,28 @@ import { Service } from '../service.model';
 export class ServiceFormComponent {
   @Input() service: Service;
   @Output() closed = new EventEmitter();
+  @Output() created = new EventEmitter();
+  @Output() removed = new EventEmitter();
 
   constructor(private servicesService: ServicesService) {
   }
 
   submit() {
-    this.servicesService.save(this.service);
+    if (this.service._id) {
+      this.servicesService.update(this.service);
+    } else {
+      this.servicesService.create(this.service)
+        .then(service => {
+          this.created.emit(service);
+        });
+    }
+  }
+
+  remove() {
+    this.servicesService.remove(this.service)
+      .then(() => {
+        this.removed.emit();
+      });
   }
 
 }

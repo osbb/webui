@@ -1,5 +1,5 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import { Service } from '../service.model';
+import { Service } from '../models/service.model';
 
 export const servicesReducer: ActionReducer<Service[]> = (state: Service[] = [], action: Action) => {
   const { type, payload } = action;

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import { HousesService } from '../houses.service';
-import { FlatsService } from '../flats.service';
-import { House } from '../house.model';
-import { Flat } from '../flat.model';
+import { HousesService } from '../services/houses.service';
+import { FlatsService } from '../services/flats.service';
+import { House } from '../models/house.model';
+import { Flat } from '../models/flat.model';
 import { AppStore } from '../app.store';
 
 @Component({
@@ -40,11 +40,27 @@ export class ResourcesComponent implements OnInit {
     this.store.dispatch({ type: 'DESELECT_HOUSE' });
   }
 
+  onHouseCreated(house) {
+    this.store.dispatch({ type: 'SELECT_HOUSE', payload: house });
+  }
+
+  onHouseRemoved() {
+    this.store.dispatch({ type: 'DESELECT_HOUSE' });
+  }
+
   onFlatSelected(flat: Flat) {
     this.store.dispatch({ type: 'SELECT_FLAT', payload: flat });
   }
 
   onFlatDeselected() {
+    this.store.dispatch({ type: 'DESELECT_FLAT' });
+  }
+
+  onFlatCreated(flat: Flat) {
+    this.store.dispatch({ type: 'SELECT_FLAT', payload: flat });
+  }
+
+  onFlatRemoved() {
     this.store.dispatch({ type: 'DESELECT_FLAT' });
   }
 }

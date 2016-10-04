@@ -1,13 +1,14 @@
 <md-card>
-    <md-card-content>
-        <md-radio-group [(ngModel)]="flat.houseId">
-            <md-radio-button *ngFor="let h of houses | async" [value]="h._id">{{h.address}}</md-radio-button>
-        </md-radio-group>
-        <md-input [placeholder]="'flatForm.number' | translate" style="width: 100%" [(ngModel)]="flat.number"></md-input>
-        <md-input [placeholder]="'flatForm.owner' | translate" style="width: 100%" [(ngModel)]="flat.owner"></md-input>
-    </md-card-content>
-    <md-card-actions>
-        <button md-button (click)="submit()">Save</button>
-        <button md-button (click)="closed.emit(); $event.stopPropagation();">Cancel</button>
-    </md-card-actions>
+  <md-card-content>
+    <md-radio-group [(ngModel)]="flat.houseId">
+      <md-radio-button *ngFor="let h of houses | async" [value]="h._id">{{h.address}}</md-radio-button>
+    </md-radio-group>
+    <md-input [placeholder]="'flatForm.number' | translate" style="width: 100%" [(ngModel)]="flat.number"></md-input>
+    <md-input [placeholder]="'flatForm.owner' | translate" style="width: 100%" [(ngModel)]="flat.owner"></md-input>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="submit()">Save</button>
+    <button md-button (click)="closed.emit(); $event.stopPropagation();">Cancel</button>
+    <button md-button (click)="remove()">Delete</button>
+  </md-card-actions>
 </md-card>

@@ -1,5 +1,5 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import { Poll } from '../poll.model';
+import { Poll } from '../models/poll.model';
 
 export const selectedPollReducer: ActionReducer<Poll> = (state: Poll = null, action: Action) => {
   const { type, payload } = action;

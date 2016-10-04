@@ -1,5 +1,5 @@
 import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
-import { Flat } from '../flat.model';
+import { Flat } from '../models/flat.model';
 
 @Component({
   selector: 'app-flats-list',

@@ -1,5 +1,5 @@
 import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
-import { House } from '../house.model';
+import { House } from '../models/house.model';
 
 @Component({
   selector: 'app-houses-list',

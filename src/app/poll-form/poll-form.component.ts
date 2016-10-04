@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { PollsService } from '../polls.service';
-import { Poll } from '../poll.model';
+import { PollsService } from '../services/polls.service';
+import { Poll } from '../models/poll.model';
 
 @Component({
   selector: 'app-poll-form',
@@ -10,12 +10,28 @@ import { Poll } from '../poll.model';
 export class PollFormComponent {
   @Input() poll: Poll;
   @Output() closed = new EventEmitter();
+  @Output() created = new EventEmitter();
+  @Output() removed = new EventEmitter();
 
   constructor(private pollsService: PollsService) {
   }
 
   submit() {
-    this.pollsService.save(this.poll);
+    if (this.poll._id) {
+      this.pollsService.update(this.poll);
+    } else {
+      this.pollsService.create(this.poll)
+        .then(poll => {
+          this.created.emit(poll);
+        });
+    }
+  }
+
+  remove() {
+    this.pollsService.remove(this.poll)
+      .then(() => {
+        this.removed.emit();
+      });
   }
 
 }

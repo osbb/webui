@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { PollsService } from '../polls.service';
-import { Poll } from '../poll.model';
+import { PollsService } from '../services/polls.service';
+import { Poll } from '../models/poll.model';
 import { AppStore } from '../app.store';
 import { Store } from '@ngrx/store';
 
@@ -29,6 +29,14 @@ export class PollsComponent implements OnInit {
   }
 
   onPollDeselected() {
+    this.store.dispatch({ type: 'DESELECT_POLL' });
+  }
+
+  onPollCreated(poll: Poll) {
+    this.store.dispatch({ type: 'SELECT_POLL', payload: poll });
+  }
+
+  onPollRemoved() {
     this.store.dispatch({ type: 'DESELECT_POLL' });
   }
 }

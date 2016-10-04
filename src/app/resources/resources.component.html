@@ -12,6 +12,8 @@
     *ngIf="selectedHouse | async"
     [house]="selectedHouse | async"
     (closed)="onHouseDeselected()"
+    (created)="onHouseCreated($event)"
+    (removed)="onHouseRemoved()"
 ></app-house-form>
 
 <md-card class="block">
@@ -28,4 +30,6 @@
     *ngIf="selectedFlat | async"
     [flat]="selectedFlat | async"
     (closed)="onFlatDeselected()"
+    (created)="onFlatCreated($event)"
+    (removed)="onFlatRemoved()"
 ></app-flat-form>

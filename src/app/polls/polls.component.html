@@ -12,4 +12,6 @@
     *ngIf="selectedPoll | async"
     [poll]="selectedPoll | async"
     (closed)="onPollDeselected()"
+    (created)="onPollCreated($event)"
+    (removed)="onPollRemoved()"
 ></app-poll-form>

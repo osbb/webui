@@ -12,6 +12,8 @@
     *ngIf="selectedService | async"
     [service]="selectedService | async"
     (closed)="onServiceDeselected()"
+    (created)="onServiceCreated($event)"
+    (removed)="onServiceRemoved()"
 ></app-service-form>
 
 <app-billing></app-billing>

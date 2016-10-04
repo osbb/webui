@@ -1,8 +1,8 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Flat } from '../flat.model';
-import { FlatsService } from '../flats.service';
-import { HousesService } from '../houses.service';
+import { Flat } from '../models/flat.model';
+import { FlatsService } from '../services/flats.service';
+import { HousesService } from '../services/houses.service';
 
 @Component({
   selector: 'app-flat-form',
@@ -12,6 +12,8 @@ import { HousesService } from '../houses.service';
 export class FlatFormComponent implements OnInit {
   @Input() flat: Flat;
   @Output() closed = new EventEmitter();
+  @Output() created = new EventEmitter();
+  @Output() removed = new EventEmitter();
 
   houses: Observable<{}>;
 
@@ -25,7 +27,21 @@ export class FlatFormComponent implements OnInit {
   }
 
   submit() {
-    this.flatsService.save(this.flat);
+    if (this.flat._id) {
+      this.flatsService.update(this.flat);
+    } else {
+      this.flatsService.create(this.flat)
+        .then(flat => {
+          this.created.emit(flat);
+        });
+    }
+  }
+
+  remove() {
+    this.flatsService.remove(this.flat)
+      .then(() => {
+        this.removed.emit();
+      });
   }
 
 }

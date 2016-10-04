@@ -1,5 +1,5 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import { Flat } from '../flat.model';
+import { Flat } from '../models/flat.model';
 
 export const selectedFlatReducer: ActionReducer<Flat> = (state: Flat = null, action: Action) => {
   const { type, payload } = action;

@@ -1,7 +1,7 @@
-import { Poll } from './poll.model';
-import { Auth } from './auth.model';
-import { Flat } from './flat.model';
-import { House } from './house.model';
+import { Poll } from './models/poll.model';
+import { Auth } from './models/auth.model';
+import { Flat } from './models/flat.model';
+import { House } from './models/house.model';
 
 export interface AppStore {
   polls: Array<Poll>;

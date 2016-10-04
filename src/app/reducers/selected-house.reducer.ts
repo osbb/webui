@@ -1,5 +1,5 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import { House } from '../house.model';
+import { House } from '../models/house.model';
 
 export const selectedHouseReducer: ActionReducer<House> = (state: House = null, action: Action) => {
   const { type, payload } = action;

@@ -1,8 +1,8 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import { House } from '../house.model';
+import { House } from '../models/house.model';
 
 export const housesReducer: ActionReducer<House[]> = (state: House[] = [], action: Action) => {
-  const {type, payload} = action;
+  const { type, payload } = action;
 
   switch (type) {
     case 'LOAD_HOUSES':
