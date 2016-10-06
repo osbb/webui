@@ -1,8 +1,78 @@
 {
-  "flatForm": {
-    "number": "Номер",
-    "owner": "ПІБ Власника"
+  "finances": {
+    "services": "Послуги",
+    "billing": "Оплата"
   },
+  "flatForm": {
+    "house": {
+      "label": "Будинок"
+    },
+    "number": {
+      "label": "Номер"
+    },
+    "owner": {
+      "label": "ПІБ Власника"
+    }
+  },
+  "flatsList": {
+    "house": {
+      "label": "Будинок"
+    },
+    "number": {
+      "label": "Номер"
+    },
+    "owner": {
+      "label": "ПІБ Власника"
+    }
+  },
+  "houseForm": {
+    "address": {
+      "label": "Адреса"
+    }
+  },
+  "housesList": {
+    "address": {
+      "label": "Адреса"
+    }
+  },
+  "pollForm": {
+    "title": {
+      "label": "Назва"
+    }
+  },
+  "pollsList": {
+    "title": {
+      "label": "Назва"
+    }
+  },
+  "polls": {
+    "polls": "Опитування"
+  },
+  "resources": {
+    "houses": "Будинки",
+    "flats": "Квартири"
+  },
+  "serviceForm": {
+    "title": {
+      "label": "Назва"
+    },
+    "price": {
+      "label": "Ціна",
+      "tip": "грн./міс. за квартиру"
+    }
+  },
+  "servicesList": {
+    "title": {
+      "label": "Назва"
+    },
+    "price": {
+      "label": "Ціна",
+      "tip": "грн. за квартиру"
+    }
+  },
+  "save": "Зберегти",
+  "cancel": "Скасувати",
+  "delete": "Видалити",
   "nav": {
     "dashboard": "Дешборд",
     "payments": "Платежі",

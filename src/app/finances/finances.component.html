@@ -1,19 +1,20 @@
-<md-card class="block">
-  <md-card-title>Services</md-card-title>
-  <md-card-content>
+<tabset>
+  <tab [heading]="'finances.services' | translate">
     <app-services-list
+        *ngIf="!(selectedService | async)"
         [services]="services | async"
         (selected)="onServiceSelected($event)"
     ></app-services-list>
-  </md-card-content>
-</md-card>
-
-<app-service-form
-    *ngIf="selectedService | async"
-    [service]="selectedService | async"
-    (closed)="onServiceDeselected()"
-    (created)="onServiceCreated($event)"
-    (removed)="onServiceRemoved()"
-></app-service-form>
-
-<app-billing></app-billing>
+    <app-service-form
+        *ngIf="selectedService | async"
+        [service]="selectedService | async"
+        (closed)="onServiceDeselected()"
+        (created)="onServiceSaved()"
+        (updated)="onServiceSaved()"
+        (removed)="onServiceRemoved()"
+    ></app-service-form>
+  </tab>
+  <tab [heading]="'finances.billing' | translate">
+    <app-billing></app-billing>
+  </tab>
+</tabset>

@@ -11,6 +11,7 @@ export class HouseFormComponent {
   @Input() house: House;
   @Output() closed = new EventEmitter();
   @Output() created = new EventEmitter();
+  @Output() updated = new EventEmitter();
   @Output() removed = new EventEmitter();
 
   constructor(private housesService: HousesService) {
@@ -18,7 +19,10 @@ export class HouseFormComponent {
 
   submit() {
     if (this.house._id) {
-      this.housesService.update(this.house);
+      this.housesService.update(this.house)
+        .then(house => {
+          this.updated.emit(house);
+        });
     } else {
       this.housesService.create(this.house)
         .then(house => {

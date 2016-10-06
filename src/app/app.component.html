@@ -1,26 +1,44 @@
-<md-toolbar color="primary">
-  <span>Kooper</span>
-  <span class="fill"></span>
-  <a md-button [routerLink]=" ['./'] ">
-    {{'nav.dashboard' | translate}}
-  </a>
-  <a md-button [routerLink]=" ['./payments'] ">
-    {{'nav.payments' | translate}}
-  </a>
-  <a md-button [routerLink]=" ['./finances'] ">
-    {{'nav.finances' | translate}}
-  </a>
-  <a md-button [routerLink]=" ['./resources'] ">
-    {{'nav.resources' | translate}}
-  </a>
-  <a md-button [routerLink]=" ['./polls'] ">
-    {{'nav.polls' | translate}}
-  </a>
-  <a md-button [routerLink]=" ['./announcements'] ">
-    {{'nav.announcements' | translate}}
-  </a>
-  <app-profile-box></app-profile-box>
-</md-toolbar>
+<header>
+  <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+    <a class="navbar-brand" [routerLink]=" ['./'] ">Kooper</a>
+    <app-profile-box></app-profile-box>
+  </nav>
+</header>
+
+<aside>
+  <ul class="nav nav-pills nav-stacked">
+    <li>
+      <a [routerLink]=" ['./'] " class="nav-link">
+        {{'nav.dashboard' | translate}}
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['./payments'] " class="nav-link">
+        {{'nav.payments' | translate}}
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['./finances'] " class="nav-link">
+        {{'nav.finances' | translate}}
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['./resources'] " class="nav-link">
+        {{'nav.resources' | translate}}
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['./polls'] " class="nav-link">
+        {{'nav.polls' | translate}}
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['./announcements'] " class="nav-link">
+        {{'nav.announcements' | translate}}
+      </a>
+    </li>
+  </ul>
+</aside>
 
 <main>
   <router-outlet></router-outlet>

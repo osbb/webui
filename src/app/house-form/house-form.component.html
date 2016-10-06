@@ -1,10 +1,15 @@
-<md-card>
-  <md-card-content>
-    <md-input placeholder="Address" style="width: 100%" [(ngModel)]="house.address"></md-input>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button (click)="submit()">Save</button>
-    <button md-button (click)="closed.emit(); $event.stopPropagation();">Cancel</button>
-    <button md-button (click)="remove()">Delete</button>
-  </md-card-actions>
-</md-card>
+<div class="card">
+  <div class="card-block">
+    <form (submit)="submit(); $event.stopPropagation();">
+      <div class="form-group">
+        <label for="houseFormAddress">{{'houseForm.address.label' | translate}}</label>
+        <input class="form-control" [(ngModel)]="house.address" name="address" id="houseFormAddress"/>
+      </div>
+      <button type="submit" class="btn btn-primary">{{'save' | translate}}</button>
+      <button type="button" class="btn btn-default" (click)="closed.emit(); $event.stopPropagation();">
+        {{'cancel' | translate}}
+      </button>
+      <button type="button" class="btn btn-danger pull-xs-right" (click)="remove()">{{'delete' | translate}}</button>
+    </form>
+  </div>
+</div>

@@ -11,6 +11,7 @@ export class PollFormComponent {
   @Input() poll: Poll;
   @Output() closed = new EventEmitter();
   @Output() created = new EventEmitter();
+  @Output() updated = new EventEmitter();
   @Output() removed = new EventEmitter();
 
   constructor(private pollsService: PollsService) {
@@ -18,7 +19,10 @@ export class PollFormComponent {
 
   submit() {
     if (this.poll._id) {
-      this.pollsService.update(this.poll);
+      this.pollsService.update(this.poll)
+        .then(poll => {
+          this.updated.emit(poll);
+        });
     } else {
       this.pollsService.create(this.poll)
         .then(poll => {

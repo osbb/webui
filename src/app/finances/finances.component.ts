@@ -32,8 +32,8 @@ export class FinancesComponent implements OnInit {
     this.store.dispatch({ type: 'DESELECT_SERVICE' });
   }
 
-  onServiceCreated(service: Service) {
-    this.store.dispatch({ type: 'SELECT_SERVICE', payload: service });
+  onServiceSaved() {
+    this.store.dispatch({ type: 'DESELECT_SERVICE' });
   }
 
   onServiceRemoved() {

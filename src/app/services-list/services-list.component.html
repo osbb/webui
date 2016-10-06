@@ -1,11 +1,22 @@
-<md-list>
-  <md-list-item
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>{{'servicesList.title.label' | translate}}</th>
+    <th>{{'servicesList.price.label' | translate}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr
       *ngFor="let service of services"
       (click)="selected.emit(service); $event.stopPropagation();"
   >
-    {{service.title}}
-  </md-list-item>
-  <md-list-item (click)="selected.emit({}); $event.stopPropagation();">
-    <md-icon>add</md-icon>
-  </md-list-item>
-</md-list>
+    <td>{{service.title}}</td>
+    <td>{{service.price}}</td>
+  </tr>
+  <tr (click)="selected.emit({}); $event.stopPropagation();">
+    <td colspan="2">
+      <md-icon>add</md-icon>
+    </td>
+  </tr>
+  </tbody>
+</table>

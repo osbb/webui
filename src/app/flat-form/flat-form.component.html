@@ -1,14 +1,25 @@
-<md-card>
-  <md-card-content>
-    <md-radio-group [(ngModel)]="flat.houseId">
-      <md-radio-button *ngFor="let h of houses | async" [value]="h._id">{{h.address}}</md-radio-button>
-    </md-radio-group>
-    <md-input [placeholder]="'flatForm.number' | translate" style="width: 100%" [(ngModel)]="flat.number"></md-input>
-    <md-input [placeholder]="'flatForm.owner' | translate" style="width: 100%" [(ngModel)]="flat.owner"></md-input>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button (click)="submit()">Save</button>
-    <button md-button (click)="closed.emit(); $event.stopPropagation();">Cancel</button>
-    <button md-button (click)="remove()">Delete</button>
-  </md-card-actions>
-</md-card>
+<div class="card">
+  <div class="card-block">
+    <form (submit)="submit(); $event.stopPropagation();">
+      <div class="form-group">
+        <label for="flatFormHouse">{{'flatForm.house.label' | translate}}</label>
+        <select class="form-control" [(ngModel)]="flat.houseId" name="house" id="flatFormHouse">
+          <option *ngFor="let h of houses | async" [value]="h._id">{{h.address}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="flatFormNumber">{{'flatForm.number.label' | translate}}</label>
+        <input class="form-control" [(ngModel)]="flat.number" name="number" id="flatFormNumber"/>
+      </div>
+      <div class="form-group">
+        <label for="flatFormOwner">{{'flatForm.owner.label' | translate}}</label>
+        <input class="form-control" [(ngModel)]="flat.owner" name="owner" id="flatFormOwner"/>
+      </div>
+      <button type="submit" class="btn btn-primary">{{'save' | translate}}</button>
+      <button type="button" class="btn btn-default" (click)="closed.emit(); $event.stopPropagation();">
+        {{'cancel' | translate}}
+      </button>
+      <button type="button" class="btn btn-danger pull-xs-right" (click)="remove()">{{'delete' | translate}}</button>
+    </form>
+  </div>
+</div>

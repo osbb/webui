@@ -1,8 +1,17 @@
-<md-list>
-  <md-list-item *ngFor="let house of houses" (click)="selected.emit(house); $event.stopPropagation();">
-    {{house.address}}
-  </md-list-item>
-  <md-list-item (click)="selected.emit({}); $event.stopPropagation();">
-    <md-icon>add</md-icon>
-  </md-list-item>
-</md-list>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>{{'housesList.address.label' | translate}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let house of houses" (click)="selected.emit(house); $event.stopPropagation();">
+    <td>{{house.address}}</td>
+  </tr>
+  <tr (click)="selected.emit({}); $event.stopPropagation();">
+    <td>
+      <md-icon>add</md-icon>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,35 +1,33 @@
-<md-card class="block">
-  <md-card-title>Houses</md-card-title>
-  <md-card-content>
+<tabset>
+  <tab [heading]="'resources.houses' | translate">
     <app-houses-list
+        *ngIf="!(selectedHouse | async)"
         [houses]="houses | async"
         (selected)="onHouseSelected($event)"
     ></app-houses-list>
-  </md-card-content>
-</md-card>
-
-<app-house-form
-    *ngIf="selectedHouse | async"
-    [house]="selectedHouse | async"
-    (closed)="onHouseDeselected()"
-    (created)="onHouseCreated($event)"
-    (removed)="onHouseRemoved()"
-></app-house-form>
-
-<md-card class="block">
-  <md-card-title>Flats</md-card-title>
-  <md-card-content>
+    <app-house-form
+        *ngIf="selectedHouse | async"
+        [house]="selectedHouse | async"
+        (closed)="onHouseDeselected()"
+        (created)="onHouseSaved()"
+        (updated)="onHouseSaved()"
+        (removed)="onHouseRemoved()"
+    ></app-house-form>
+  </tab>
+  <tab [heading]="'resources.flats' | translate">
     <app-flats-list
+        *ngIf="!(selectedFlat | async)"
         [flats]="flats | async"
         (selected)="onFlatSelected($event)"
     ></app-flats-list>
-  </md-card-content>
-</md-card>
+    <app-flat-form
+        *ngIf="selectedFlat | async"
+        [flat]="selectedFlat | async"
+        (closed)="onFlatDeselected()"
+        (created)="onFlatSaved()"
+        (updated)="onFlatSaved()"
+        (removed)="onFlatRemoved()"
+    ></app-flat-form>
+  </tab>
+</tabset>
 
-<app-flat-form
-    *ngIf="selectedFlat | async"
-    [flat]="selectedFlat | async"
-    (closed)="onFlatDeselected()"
-    (created)="onFlatCreated($event)"
-    (removed)="onFlatRemoved()"
-></app-flat-form>

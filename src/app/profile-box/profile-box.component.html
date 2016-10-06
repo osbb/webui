@@ -1,8 +1,8 @@
-<p *ngIf="!(auth | async).token">
-  <button md-button (click)="login()">
+<form class="form-inline pull-xs-right">
+  <button type="button" class="btn btn-primary" *ngIf="!(auth | async).token" (click)="login()">
     Login
   </button>
-</p>
-<p *ngIf="(auth | async).token">
-  {{(auth | async).token}}
-</p>
+  <button type="button" class="btn btn-primary" *ngIf="(auth | async).token">
+    Logout
+  </button>
+</form>

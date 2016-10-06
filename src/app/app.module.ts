@@ -8,6 +8,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 
+import { AlertModule, ButtonsModule, TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
+
 import { AppComponent } from './app.component';
 import { MdModule } from './shared/md.module';
 import { PollsListComponent } from './polls-list/polls-list.component';
@@ -110,7 +112,10 @@ import { BillingComponent } from './billing/billing.component';
       provide: TranslateLoader,
       useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
       deps: [Http]
-    })
+    }),
+    AlertModule,
+    ButtonsModule,
+    TabsModule,
   ],
   providers: [
     AuthService,

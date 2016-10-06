@@ -11,6 +11,7 @@ export class ServiceFormComponent {
   @Input() service: Service;
   @Output() closed = new EventEmitter();
   @Output() created = new EventEmitter();
+  @Output() updated = new EventEmitter();
   @Output() removed = new EventEmitter();
 
   constructor(private servicesService: ServicesService) {
@@ -18,7 +19,10 @@ export class ServiceFormComponent {
 
   submit() {
     if (this.service._id) {
-      this.servicesService.update(this.service);
+      this.servicesService.update(this.service)
+        .then(service => {
+          this.updated.emit(service);
+        });
     } else {
       this.servicesService.create(this.service)
         .then(service => {

@@ -32,8 +32,8 @@ export class PollsComponent implements OnInit {
     this.store.dispatch({ type: 'DESELECT_POLL' });
   }
 
-  onPollCreated(poll: Poll) {
-    this.store.dispatch({ type: 'SELECT_POLL', payload: poll });
+  onPollSaved() {
+    this.store.dispatch({ type: 'DESELECT_POLL' });
   }
 
   onPollRemoved() {

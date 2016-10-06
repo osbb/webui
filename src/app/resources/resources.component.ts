@@ -40,8 +40,8 @@ export class ResourcesComponent implements OnInit {
     this.store.dispatch({ type: 'DESELECT_HOUSE' });
   }
 
-  onHouseCreated(house) {
-    this.store.dispatch({ type: 'SELECT_HOUSE', payload: house });
+  onHouseSaved() {
+    this.store.dispatch({ type: 'DESELECT_HOUSE' });
   }
 
   onHouseRemoved() {
@@ -56,8 +56,8 @@ export class ResourcesComponent implements OnInit {
     this.store.dispatch({ type: 'DESELECT_FLAT' });
   }
 
-  onFlatCreated(flat: Flat) {
-    this.store.dispatch({ type: 'SELECT_FLAT', payload: flat });
+  onFlatSaved() {
+    this.store.dispatch({ type: 'DESELECT_FLAT' });
   }
 
   onFlatRemoved() {

@@ -13,6 +13,7 @@ export class FlatFormComponent implements OnInit {
   @Input() flat: Flat;
   @Output() closed = new EventEmitter();
   @Output() created = new EventEmitter();
+  @Output() updated = new EventEmitter();
   @Output() removed = new EventEmitter();
 
   houses: Observable<{}>;
@@ -28,7 +29,10 @@ export class FlatFormComponent implements OnInit {
 
   submit() {
     if (this.flat._id) {
-      this.flatsService.update(this.flat);
+      this.flatsService.update(this.flat)
+        .then(flat => {
+          this.updated.emit(flat);
+        });
     } else {
       this.flatsService.create(this.flat)
         .then(flat => {
