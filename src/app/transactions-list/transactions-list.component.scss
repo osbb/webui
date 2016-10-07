@@ -1,0 +1,14 @@
+table {
+  > thead {
+    > tr:first-of-type {
+      > th {
+        border-top-color: transparent;
+      }
+    }
+  }
+  > tbody {
+    tr {
+      cursor: pointer;
+    }
+  }
+}

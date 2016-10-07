@@ -7,64 +7,76 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
-
 import { AlertModule, ButtonsModule, TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
 
-import { AppComponent } from './app.component';
 import { MdModule } from './shared/md.module';
-import { PollsListComponent } from './polls-list/polls-list.component';
-import { PollFormComponent } from './poll-form/poll-form.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { AuthService } from './services/auth.service';
-import { PollsService } from './services/polls.service';
-import { HousesService } from './services/houses.service';
-import { FlatsService } from './services/flats.service';
-import { ServicesService } from './services/services.service';
-import { WebSocketService } from './services/web-socket.service';
-import { pollsReducer } from './reducers/polls.reducer';
-import { authReducer } from './reducers/auth.reducer';
-import { housesReducer } from './reducers/houses.reducer';
-import { flatsReducer } from './reducers/flats.reducer';
-import { servicesReducer } from './reducers/services.reducer';
-import { selectedHouseReducer } from './reducers/selected-house.reducer';
-import { selectedFlatReducer } from './reducers/selected-flat.reducer';
-import { selectedPollReducer } from './reducers/selected-poll.reducer';
-import { selectedServiceReducer } from './reducers/selected-service.reducer';
-import { ProfileBoxComponent } from './profile-box/profile-box.component';
-import { PollsComponent } from './polls/polls.component';
+
+// Components
+import { AnnouncementsComponent } from './announcements/announcements.component';
+import { AppComponent } from './app.component';
+import { BillingComponent } from './billing/billing.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FinancesComponent } from './finances/finances.component';
-import { PaymentsComponent } from './payments/payments.component';
-import { AnnouncementsComponent } from './announcements/announcements.component';
-import { ResourcesComponent } from './resources/resources.component';
-import { HousesListComponent } from './houses-list/houses-list.component';
+import { FlatFormComponent } from './flat-form/flat-form.component';
 import { FlatsListComponent } from './flats-list/flats-list.component';
 import { HouseFormComponent } from './house-form/house-form.component';
-import { FlatFormComponent } from './flat-form/flat-form.component';
-import { ServicesListComponent } from './services-list/services-list.component';
+import { HousesListComponent } from './houses-list/houses-list.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { PollFormComponent } from './poll-form/poll-form.component';
+import { PollsComponent } from './polls/polls.component';
+import { PollsListComponent } from './polls-list/polls-list.component';
+import { ProfileBoxComponent } from './profile-box/profile-box.component';
+import { ResourcesComponent } from './resources/resources.component';
 import { ServiceFormComponent } from './service-form/service-form.component';
-import { BillingComponent } from './billing/billing.component';
+import { ServicesListComponent } from './services-list/services-list.component';
+import { TransactionFormComponent } from './transaction-form/transaction-form.component';
+import { TransactionsListComponent } from './transactions-list/transactions-list.component';
+
+// Services
+import { AuthService } from './services/auth.service';
+import { FlatsService } from './services/flats.service';
+import { HousesService } from './services/houses.service';
+import { PollsService } from './services/polls.service';
+import { ServicesService } from './services/services.service';
+import { TransactionsService } from './services/transactions.service';
+import { WebSocketService } from './services/web-socket.service';
+
+// Reducers
+import { authReducer } from './reducers/auth.reducer';
+import { flatsReducer } from './reducers/flats.reducer';
+import { selectedFlatReducer } from './reducers/selected-flat.reducer';
+import { housesReducer } from './reducers/houses.reducer';
+import { selectedHouseReducer } from './reducers/selected-house.reducer';
+import { pollsReducer } from './reducers/polls.reducer';
+import { selectedPollReducer } from './reducers/selected-poll.reducer';
+import { servicesReducer } from './reducers/services.reducer';
+import { selectedServiceReducer } from './reducers/selected-service.reducer';
+import { transactionsReducer } from './reducers/transactions.reducer';
+import { selectedTransactionReducer } from './reducers/selected-transaction.reducer';
 
 @NgModule({
   declarations: [
+    AnnouncementsComponent,
     AppComponent,
-    PollsListComponent,
-    PollFormComponent,
-    NotFoundComponent,
-    ProfileBoxComponent,
-    PollsComponent,
+    BillingComponent,
     DashboardComponent,
     FinancesComponent,
-    PaymentsComponent,
-    AnnouncementsComponent,
-    ResourcesComponent,
-    FlatsListComponent,
-    HousesListComponent,
-    HouseFormComponent,
     FlatFormComponent,
-    ServicesListComponent,
+    FlatsListComponent,
+    HouseFormComponent,
+    HousesListComponent,
+    NotFoundComponent,
+    PaymentsComponent,
+    PollFormComponent,
+    PollsComponent,
+    PollsListComponent,
+    ProfileBoxComponent,
+    ResourcesComponent,
     ServiceFormComponent,
-    BillingComponent
+    ServicesListComponent,
+    TransactionFormComponent,
+    TransactionsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +102,8 @@ import { BillingComponent } from './billing/billing.component';
       selectedFlat: selectedFlatReducer,
       services: servicesReducer,
       selectedService: selectedServiceReducer,
+      transactions: transactionsReducer,
+      selectedTransaction: selectedTransactionReducer,
     }, {
       polls: [],
       selectedPoll: null,
@@ -100,6 +114,8 @@ import { BillingComponent } from './billing/billing.component';
       selectedFlat: null,
       services: [],
       selectedService: null,
+      transactions: [],
+      selectedTransaction: null,
     }),
     StoreDevtoolsModule.instrumentStore({
       monitor: useLogMonitor({
@@ -119,10 +135,11 @@ import { BillingComponent } from './billing/billing.component';
   ],
   providers: [
     AuthService,
-    PollsService,
-    HousesService,
     FlatsService,
+    HousesService,
+    PollsService,
     ServicesService,
+    TransactionsService,
     WebSocketService,
   ],
   bootstrap: [AppComponent]

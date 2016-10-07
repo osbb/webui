@@ -1,6 +1,7 @@
 {
   "finances": {
     "services": "Послуги",
+    "transactions": "Транзакції",
     "billing": "Оплата"
   },
   "flatForm": {
@@ -68,6 +69,16 @@
     "price": {
       "label": "Ціна",
       "tip": "грн. за квартиру"
+    }
+  },
+  "transactionForm": {
+    "title": {
+      "label": "Назва"
+    }
+  },
+  "transactionsList": {
+    "title": {
+      "label": "Назва"
     }
   },
   "save": "Зберегти",

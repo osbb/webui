@@ -14,6 +14,21 @@
         (removed)="onServiceRemoved()"
     ></app-service-form>
   </tab>
+  <tab [heading]="'finances.transactions' | translate">
+    <app-transactions-list
+        *ngIf="!(selectedTransaction | async)"
+        [transactions]="transactions | async"
+        (selected)="onTransactionSelected($event)"
+    ></app-transactions-list>
+    <app-transaction-form
+        *ngIf="selectedTransaction | async"
+        [transaction]="selectedTransaction | async"
+        (closed)="onTransactionDeselected()"
+        (created)="onTransactionSaved()"
+        (updated)="onTransactionSaved()"
+        (removed)="onTransactionRemoved()"
+    ></app-transaction-form>
+  </tab>
   <tab [heading]="'finances.billing' | translate">
     <app-billing></app-billing>
   </tab>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ServicesService } from '../services/services.service';
+import { TransactionsService } from '../services/transactions.service';
 import { Service } from '../models/service.model';
+import { Transaction } from '../models/transaction.model';
 import { AppStore } from '../app.store';
 import { Store } from '@ngrx/store';
 
@@ -12,16 +14,22 @@ import { Store } from '@ngrx/store';
 })
 export class FinancesComponent implements OnInit {
   services: Observable<{}>;
+  transactions: Observable<{}>;
   selectedService: Observable<{}>;
+  selectedTransaction: Observable<{}>;
 
   constructor(private servicesService: ServicesService,
+              private transactionsService: TransactionsService,
               private store: Store<AppStore>) {
     this.services = servicesService.services;
     this.selectedService = store.select('selectedService');
+    this.transactions = transactionsService.transactions;
+    this.selectedTransaction = store.select('selectedTransaction');
   }
 
   ngOnInit() {
     this.servicesService.load();
+    this.transactionsService.load();
   }
 
   onServiceSelected(service: Service) {
@@ -38,5 +46,21 @@ export class FinancesComponent implements OnInit {
 
   onServiceRemoved() {
     this.store.dispatch({ type: 'DESELECT_SERVICE' });
+  }
+
+  onTransactionSelected(transaction: Transaction) {
+    this.store.dispatch({ type: 'SELECT_TRANSACTION', payload: transaction });
+  }
+
+  onTransactionDeselected() {
+    this.store.dispatch({ type: 'DESELECT_TRANSACTION' });
+  }
+
+  onTransactionSaved() {
+    this.store.dispatch({ type: 'DESELECT_TRANSACTION' });
+  }
+
+  onTransactionRemoved() {
+    this.store.dispatch({ type: 'DESELECT_TRANSACTION' });
   }
 }
