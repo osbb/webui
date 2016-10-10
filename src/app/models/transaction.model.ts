@@ -1,4 +1,6 @@
 export interface Transaction {
-  _id: number;
-  title: string;
+  _id: String;
+  flatId: String;
+  serviceId: String;
+  amount: Number;
 }

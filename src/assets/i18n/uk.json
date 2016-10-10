@@ -72,13 +72,27 @@
     }
   },
   "transactionForm": {
-    "title": {
-      "label": "Назва"
+    "serviceId": {
+      "label": "Послуга"
+    },
+    "flatId": {
+      "label": "Платник"
+    },
+    "amount": {
+      "label": "Сума",
+      "tip": "грн."
     }
   },
   "transactionsList": {
-    "title": {
-      "label": "Назва"
+    "person": {
+      "label": "Платник"
+    },
+    "service": {
+      "label": "Послуга"
+    },
+    "amount": {
+      "label": "Сума",
+      "tip": "грн."
     }
   },
   "save": "Зберегти",

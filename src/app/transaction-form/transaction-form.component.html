@@ -2,8 +2,33 @@
   <div class="card-block">
     <form (submit)="submit(); $event.stopPropagation();">
       <div class="form-group">
-        <label for="transactionFormTitle">{{'transactionForm.title.label' | translate}}</label>
-        <input class="form-control" [(ngModel)]="transaction.title" name="title" id="transactionFormTitle"/>
+        <label for="transactionFormFlatId">{{'transactionForm.flatId.label' | translate}}</label>
+        <select class="form-control" [(ngModel)]="transaction.flatId" name="flatId" id="transactionFormFlatId">
+          <option *ngFor="let f of flats" [value]="f._id">
+            {{f.owner}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="transactionFormServiceId">{{'transactionForm.serviceId.label' | translate}}</label>
+        <select class="form-control" [(ngModel)]="transaction.serviceId" name="serviceId" id="transactionFormServiceId">
+          <option *ngFor="let s of services" [value]="s._id">
+            {{s.title}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="transactionFormAmount">{{'transactionForm.amount.label' | translate}}</label>
+        <div class="input-group">
+          <input type="number"
+                 step="0.01"
+                 min="0"
+                 class="form-control"
+                 [(ngModel)]="transaction.amount"
+                 name="amount"
+                 id="transactionFormAmount"/>
+          <div class="input-group-addon">{{'transactionForm.amount.tip' | translate}}</div>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary">{{'save' | translate}}</button>
       <button type="button" class="btn btn-default" (click)="closed.emit(); $event.stopPropagation();">

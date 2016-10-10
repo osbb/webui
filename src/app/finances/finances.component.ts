@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ServicesService } from '../services/services.service';
 import { TransactionsService } from '../services/transactions.service';
+import { FlatsService } from '../services/flats.service';
 import { Service } from '../models/service.model';
 import { Transaction } from '../models/transaction.model';
 import { AppStore } from '../app.store';
@@ -15,21 +16,25 @@ import { Store } from '@ngrx/store';
 export class FinancesComponent implements OnInit {
   services: Observable<{}>;
   transactions: Observable<{}>;
+  flats: Observable<{}>;
   selectedService: Observable<{}>;
   selectedTransaction: Observable<{}>;
 
   constructor(private servicesService: ServicesService,
               private transactionsService: TransactionsService,
+              private flatsService: FlatsService,
               private store: Store<AppStore>) {
     this.services = servicesService.services;
     this.selectedService = store.select('selectedService');
     this.transactions = transactionsService.transactions;
     this.selectedTransaction = store.select('selectedTransaction');
+    this.flats = flatsService.flats;
   }
 
   ngOnInit() {
     this.servicesService.load();
     this.transactionsService.load();
+    this.flatsService.load();
   }
 
   onServiceSelected(service: Service) {

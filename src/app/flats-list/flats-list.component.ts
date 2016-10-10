@@ -1,5 +1,6 @@
 import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { Flat } from '../models/flat.model';
+import { House } from '../models/house.model';
 
 @Component({
   selector: 'app-flats-list',
@@ -9,5 +10,6 @@ import { Flat } from '../models/flat.model';
 })
 export class FlatsListComponent {
   @Input() flats: Flat[];
+  @Input() houses: House[];
   @Output() selected = new EventEmitter();
 }

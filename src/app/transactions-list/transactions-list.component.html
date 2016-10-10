@@ -1,7 +1,9 @@
 <table class="table table-hover">
   <thead>
   <tr>
-    <th>{{'transactionsList.title.label' | translate}}</th>
+    <th>{{'transactionsList.person.label' | translate}}</th>
+    <th>{{'transactionsList.service.label' | translate}}</th>
+    <th>{{'transactionsList.amount.label' | translate}}</th>
   </tr>
   </thead>
   <tbody>
@@ -9,10 +11,20 @@
       *ngFor="let transaction of transactions"
       (click)="selected.emit(transaction); $event.stopPropagation();"
   >
-    <td>{{transaction.title}}</td>
+    <td>
+      <span *ngIf="flats| findOne:transaction.flatId">
+        {{(flats| findOne:transaction.flatId).owner}}
+      </span>
+    </td>
+    <td>
+      <span *ngIf="services| findOne:transaction.serviceId">
+        {{(services| findOne:transaction.serviceId).title}}
+      </span>
+    </td>
+    <td>{{transaction.amount | currency:'UAH'}}</td>
   </tr>
   <tr (click)="selected.emit({}); $event.stopPropagation();">
-    <td colspan="2">
+    <td colspan="3">
       <md-icon>add</md-icon>
     </td>
   </tr>

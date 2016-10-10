@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Transaction } from '../models/transaction.model';
+import { Flat } from '../models/flat.model';
+import { Service } from '../models/service.model';
 import { TransactionsService } from '../services/transactions.service';
 
 @Component({
@@ -9,6 +11,8 @@ import { TransactionsService } from '../services/transactions.service';
 })
 export class TransactionFormComponent {
   @Input() transaction: Transaction;
+  @Input() flats: Flat[];
+  @Input() services: Service[];
   @Output() closed = new EventEmitter();
   @Output() created = new EventEmitter();
   @Output() updated = new EventEmitter();

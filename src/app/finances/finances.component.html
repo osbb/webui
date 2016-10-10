@@ -18,11 +18,15 @@
     <app-transactions-list
         *ngIf="!(selectedTransaction | async)"
         [transactions]="transactions | async"
+        [flats]="flats | async"
+        [services]="services | async"
         (selected)="onTransactionSelected($event)"
     ></app-transactions-list>
     <app-transaction-form
         *ngIf="selectedTransaction | async"
         [transaction]="selectedTransaction | async"
+        [flats]="flats | async"
+        [services]="services | async"
         (closed)="onTransactionDeselected()"
         (created)="onTransactionSaved()"
         (updated)="onTransactionSaved()"

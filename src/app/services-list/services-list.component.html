@@ -11,7 +11,7 @@
       (click)="selected.emit(service); $event.stopPropagation();"
   >
     <td>{{service.title}}</td>
-    <td>{{service.price}}</td>
+    <td>{{service.price | currency:'UAH'}}</td>
   </tr>
   <tr (click)="selected.emit({}); $event.stopPropagation();">
     <td colspan="2">

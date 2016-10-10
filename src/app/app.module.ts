@@ -42,6 +42,9 @@ import { ServicesService } from './services/services.service';
 import { TransactionsService } from './services/transactions.service';
 import { WebSocketService } from './services/web-socket.service';
 
+// Pipes
+import { FindOnePipe } from './pipes/find-one.pipe';
+
 // Reducers
 import { authReducer } from './reducers/auth.reducer';
 import { flatsReducer } from './reducers/flats.reducer';
@@ -77,6 +80,7 @@ import { selectedTransactionReducer } from './reducers/selected-transaction.redu
     ServicesListComponent,
     TransactionFormComponent,
     TransactionsListComponent,
+    FindOnePipe,
   ],
   imports: [
     BrowserModule,

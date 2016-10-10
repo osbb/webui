@@ -18,11 +18,13 @@
     <app-flats-list
         *ngIf="!(selectedFlat | async)"
         [flats]="flats | async"
+        [houses]="houses | async"
         (selected)="onFlatSelected($event)"
     ></app-flats-list>
     <app-flat-form
         *ngIf="selectedFlat | async"
         [flat]="selectedFlat | async"
+        [houses]="houses | async"
         (closed)="onFlatDeselected()"
         (created)="onFlatSaved()"
         (updated)="onFlatSaved()"
@@ -30,4 +32,3 @@
     ></app-flat-form>
   </tab>
 </tabset>
-

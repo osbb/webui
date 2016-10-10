@@ -1,12 +1,18 @@
 <table class="table table-hover">
   <thead>
   <tr>
+    <th>{{'flatsList.house.label' | translate}}</th>
     <th>{{'flatsList.number.label' | translate}}</th>
     <th>{{'flatsList.owner.label' | translate}}</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let flat of flats" (click)="selected.emit(flat); $event.stopPropagation();">
+    <td>
+      <span *ngIf="houses| findOne:flat.houseId">
+        {{(houses| findOne:flat.houseId).address}}
+      </span>
+    </td>
     <td>{{flat.number}}</td>
     <td>{{flat.owner}}</td>
   </tr>
