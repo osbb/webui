@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as uuid from 'node-uuid';
 import { Store } from '@ngrx/store';
-import { AppStore } from '../app.store';
+import { AppStore } from '../shared/app.store';
 import { WebSocketService } from './web-socket.service';
 import { Auth } from '../models/auth.model';
 import { Deferred } from '../shared/deferred';

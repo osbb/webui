@@ -12,26 +12,26 @@ import { AlertModule, ButtonsModule, TabsModule } from 'ng2-bootstrap/ng2-bootst
 import { MdModule } from './shared/md.module';
 
 // Components
-import { AnnouncementsComponent } from './announcements/announcements.component';
-import { AppComponent } from './app.component';
-import { BillingComponent } from './billing/billing.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { FinancesComponent } from './finances/finances.component';
-import { FlatFormComponent } from './flat-form/flat-form.component';
-import { FlatsListComponent } from './flats-list/flats-list.component';
-import { HouseFormComponent } from './house-form/house-form.component';
-import { HousesListComponent } from './houses-list/houses-list.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { PaymentsComponent } from './payments/payments.component';
-import { PollFormComponent } from './poll-form/poll-form.component';
-import { PollsComponent } from './polls/polls.component';
-import { PollsListComponent } from './polls-list/polls-list.component';
-import { ProfileBoxComponent } from './profile-box/profile-box.component';
-import { ResourcesComponent } from './resources/resources.component';
-import { ServiceFormComponent } from './service-form/service-form.component';
-import { ServicesListComponent } from './services-list/services-list.component';
-import { TransactionFormComponent } from './transaction-form/transaction-form.component';
-import { TransactionsListComponent } from './transactions-list/transactions-list.component';
+import { AnnouncementsComponent } from './components/announcements/announcements.component';
+import { AppComponent } from './components/app/app.component';
+import { BillingComponent } from './components/billing/billing.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FinancesComponent } from './components/finances/finances.component';
+import { FlatFormComponent } from './components/flat-form/flat-form.component';
+import { FlatsListComponent } from './components/flats-list/flats-list.component';
+import { HouseFormComponent } from './components/house-form/house-form.component';
+import { HousesListComponent } from './components/houses-list/houses-list.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PaymentsComponent } from './components/payments/payments.component';
+import { PollFormComponent } from './components/poll-form/poll-form.component';
+import { PollsComponent } from './components/polls/polls.component';
+import { PollsListComponent } from './components/polls-list/polls-list.component';
+import { ProfileBoxComponent } from './components/profile-box/profile-box.component';
+import { ResourcesComponent } from './components/resources/resources.component';
+import { ServiceFormComponent } from './components/service-form/service-form.component';
+import { ServicesListComponent } from './components/services-list/services-list.component';
+import { TransactionFormComponent } from './components/transaction-form/transaction-form.component';
+import { TransactionsListComponent } from './components/transactions-list/transactions-list.component';
 
 // Services
 import { AuthService } from './services/auth.service';
