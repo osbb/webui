@@ -1,8 +1,8 @@
 <form class="form-inline pull-xs-right">
-  <button type="button" class="btn btn-primary" *ngIf="!(auth | async).token" (click)="login()">
+  <button type="button" class="btn btn-primary" *ngIf="!(currentUser | async)" (click)="login()">
     Login
   </button>
-  <button type="button" class="btn btn-primary" *ngIf="(auth | async).token">
+  <button type="button" class="btn btn-primary" *ngIf="currentUser | async" (click)="logout()">
     Logout
   </button>
 </form>

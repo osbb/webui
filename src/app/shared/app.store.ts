@@ -1,7 +1,4 @@
-import { Poll } from '../models/poll.model';
-import { Auth } from '../models/auth.model';
-import { Flat } from '../models/flat.model';
-import { House } from '../models/house.model';
+import { Poll, Auth, Flat, House, User } from '../models';
 
 export interface AppStore {
   polls: Array<Poll>;
@@ -10,4 +7,5 @@ export interface AppStore {
   selectedHouse: House;
   flats: Array<Flat>;
   selectedFlat: Flat;
+  currentUser: User;
 }

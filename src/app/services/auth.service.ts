@@ -4,45 +4,45 @@ import * as uuid from 'node-uuid';
 import { Store } from '@ngrx/store';
 import { AppStore } from '../shared/app.store';
 import { WebSocketService } from './web-socket.service';
-import { Auth } from '../models/auth.model';
 import { Deferred } from '../shared/deferred';
-
-interface LoginRequestPayload {
-  login: String;
-}
-
-interface LoginResponsePayload {
-  userId: String;
-  token: String;
-}
-
-interface LogoutRequestPayload {
-  token: String;
-}
-
-interface LogoutResponsePayload {
-}
+import {
+  LoginRequestModel,
+  LoginResponseModel,
+  LogoutRequestModel,
+  LogoutResponseModel
+} from '../models';
 
 @Injectable()
 export class AuthService {
-  auth: Observable<Auth>;
+  currentUser: Observable<{}>;
   requests = {};
 
   constructor(private store: Store<AppStore>, private socket: WebSocketService) {
-    this.auth = store.select('auth');
+    this.currentUser = store.select('currentUser');
 
+    // Listen to login status changes in other windows
+    window.addEventListener('storage', e => {
+      if (e.key === 'currentUser') {
+        this.store.dispatch({ type: 'LOGIN', payload: JSON.parse(e.newValue) });
+      }
+    });
+
+    // Listen to login events from server
     this.socket.socket.on('LOGIN', payload => {
       const { data, correlationId } = payload;
       this.store.dispatch({ type: 'LOGIN', payload: data });
+      localStorage.setItem('currentUser', JSON.stringify(data));
       if (this.requests[correlationId]) {
         this.requests[correlationId].resolve(data);
         delete this.requests[correlationId];
       }
     });
 
+    // Listen to logout events from server
     this.socket.socket.on('LOGOUT', payload => {
       const { data, correlationId } = payload;
       this.store.dispatch({ type: 'LOGOUT', payload: data });
+      localStorage.removeItem('currentUser');
       if (this.requests[correlationId]) {
         this.requests[correlationId].resolve(data);
         delete this.requests[correlationId];
@@ -50,17 +50,17 @@ export class AuthService {
     });
   }
 
-  login(data: LoginRequestPayload): Promise<LoginResponsePayload> {
+  loginWithPassword(data: LoginRequestModel): Promise<LoginResponseModel> {
     const correlationId = uuid.v4();
     this.socket.socket.emit('LOGIN', { data, correlationId });
-    this.requests[correlationId] = new Deferred<LoginResponsePayload>();
+    this.requests[correlationId] = new Deferred<LoginResponseModel>();
     return this.requests[correlationId].promise;
   }
 
-  logout(data: LogoutRequestPayload): Promise<LogoutResponsePayload> {
+  logout(data: LogoutRequestModel): Promise<LogoutResponseModel> {
     const correlationId = uuid.v4();
     this.socket.socket.emit('LOGOUT', { data, correlationId });
-    this.requests[correlationId] = new Deferred<LogoutResponsePayload>();
+    this.requests[correlationId] = new Deferred<LogoutResponseModel>();
     return this.requests[correlationId].promise;
   }
 }

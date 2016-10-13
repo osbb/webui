@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs';
-import { Auth } from '../../models/auth.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-box',
@@ -9,13 +9,21 @@ import { Auth } from '../../models/auth.model';
   styleUrls: ['profile-box.component.scss']
 })
 export class ProfileBoxComponent {
-  auth: Observable<Auth>;
+  currentUser: Observable<{}>;
 
-  constructor(private authService: AuthService) {
-    this.auth = authService.auth;
+  constructor(private authService: AuthService, private router: Router) {
+    this.currentUser = authService.currentUser;
   }
 
   login() {
-    this.authService.login({ login: 'admin' });
+    this.router.navigate(['/login']);
+  }
+
+  logout() {
+    this.authService
+      .logout({ token: '123' })
+      .then(() => {
+        this.router.navigate(['/login']);
+      });
   }
 }

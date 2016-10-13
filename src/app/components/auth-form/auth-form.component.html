@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-block">
+    <form (submit)="submit(); $event.stopPropagation();">
+      <div class="form-group">
+        <label for="authFormEmail">{{'authForm.email.label' | translate}}</label>
+        <input class="form-control" [(ngModel)]="data.email" name="email" type="email" id="authFormEmail"/>
+      </div>
+      <div class="form-group">
+        <label for="authFormPassword">{{'authForm.password.label' | translate}}</label>
+        <input class="form-control" [(ngModel)]="data.password" name="password" type="password" id="authFormPassword"/>
+      </div>
+      <button type="submit" class="btn btn-primary">{{'login' | translate}}</button>
+    </form>
+  </div>
+</div>
